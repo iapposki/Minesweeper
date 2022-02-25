@@ -105,6 +105,7 @@ export class Minesweeper{
             NUMBER: "number",
             MARKED: "marked",
         }
+        
         this.board = [];
         this.mine_positions = [];
 
@@ -134,6 +135,7 @@ export class Minesweeper{
     createBorad(){
         for(let x = 0; x < this.board_size; x++){
             const row = [];
+            var adj = 0;
             for(let y = 0; y < this.board_size; y++){
                 const element = document.createElement("div");
                 element.dataset.status = this.tile_status.HIDDEN;
@@ -148,7 +150,8 @@ export class Minesweeper{
                     },
                     set status(value) {
                         this.element.dataset.status = value
-                    }    
+                    },
+                    adj,
                 }
                 row.push(tile); 
             }    
@@ -166,10 +169,14 @@ export class Minesweeper{
         if (tile.status === this.tile_status.MARKED){
             tile.status = this.tile_status.HIDDEN;
             tile.element.style.backgroundColor = "#666";
+            tile.element.style.backgroundImage = "none"
             return;
         } else{
             tile.status = this.tile_status.MARKED;
-            tile.element.style.backgroundColor = "yellow";
+            // tile.element.style.backgroundColor = "yellow";
+            // object.style.backgroundSize = "auto|length|cover|contain|intial|inherit"
+            tile.element.style.backgroundImage = "url('./assets/flag.png')"
+            tile.element.style.backgroundSize = "1.8em"
         }
         // if (tile.status === tile_status.MARKED){
         //     tile.element.style.backgroundColor = "Red";
@@ -202,8 +209,33 @@ export class Minesweeper{
                     }
                 }
             }
+            
             if (mines_arr.length != 0){
                 tile.element.innerHTML = mines_arr.length;
+                if (mines_arr.length == 1){
+                    tile.element.style.color = "#0001fb";
+                }
+                if (mines_arr.length == 2){
+                    tile.element.style.color = "#028001";
+                }
+                if (mines_arr.length == 3){
+                    tile.element.style.color = "#fc0200";
+                }
+                if (mines_arr.length == 4){
+                    tile.element.style.color = "#010180";
+                }
+                if (mines_arr.length == 5){
+                    tile.element.style.color = "#810103";
+                }
+                if (mines_arr.length == 6){
+                    tile.element.style.color = "#017e7d";
+                }
+                if (mines_arr.length == 7){
+                    tile.element.style.color = "#000000";
+                }
+                if (mines_arr.length == 8){
+                    tile.element.style.color = "#808080";
+                }
             }
             tile.status = this.tile_status.NUMBER
             tile.element.style.backgroundColor = "#b9b9b9";
@@ -269,4 +301,6 @@ export class Minesweeper{
         }
         return true;
     }
+
+    
 }

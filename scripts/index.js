@@ -2,7 +2,7 @@ import {Minesweeper} from "./mnsp.js";
 
 
 const board_size = 9;
-const mines = 10;
+var mines = 10;
 
 
 
@@ -10,8 +10,9 @@ const boardElement = document.getElementById("board");
 const mineLeftCount = document.querySelector('.data-mine-left');
 const messageElement = document.querySelector('.subtext');
 
-const newBoard = new Minesweeper(board_size,mines)
+// document.body.style.backgroundImage = "url('./assets/mine.png')"
 
+const newBoard = new Minesweeper(board_size,mines)
 newBoard.board.forEach(function(row){
     row.forEach(function(tile){
         // console.log(tile[0][0],tile[0][1])
@@ -37,6 +38,14 @@ newBoard.board.forEach(function(row){
             // prevent default right click menu
             e.preventDefault();
             newBoard.markTile(tile);
+            if (tile.status == newBoard.tile_status.MARKED){
+                mines--;
+                // console.log(mines)
+                mineLeftCount.innerHTML = mines;
+            } else {
+                mines++;
+                mineLeftCount.innerHTML = mines;
+            }
             
             // listMineLeft();
         })
