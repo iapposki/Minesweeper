@@ -42,7 +42,7 @@ newBoard.board.forEach(function(row){
                 mines--;
                 // console.log(mines)
                 mineLeftCount.innerHTML = mines;
-            } else {
+            } else if (tile.status == newBoard.tile_status.HIDDEN) {
                 mines++;
                 mineLeftCount.innerHTML = mines;
             }
