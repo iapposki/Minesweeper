@@ -32,6 +32,14 @@ newBoard.board.forEach(function(row){
             }
             if (lose){
                 messageElement.innerHTML = "You Lose!";
+                newBoard.board.forEach(function(row){
+                    row.forEach(function(tile){
+                        if (tile.mine){
+                            tile.element.style.backgroundImage = "url('./assets/mine.png')"
+                            tile.element.style.backgroundSize = "2em"
+                        }
+                    })
+                })
             }
         })        
         tile.element.addEventListener("contextmenu", function(e){

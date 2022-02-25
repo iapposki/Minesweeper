@@ -176,7 +176,7 @@ export class Minesweeper{
             // tile.element.style.backgroundColor = "yellow";
             // object.style.backgroundSize = "auto|length|cover|contain|intial|inherit"
             tile.element.style.backgroundImage = "url('./assets/flag.png')"
-            tile.element.style.backgroundSize = "1.8em"
+            tile.element.style.backgroundSize = "1.77em";
         }
         // if (tile.status === tile_status.MARKED){
         //     tile.element.style.backgroundColor = "Red";
@@ -212,6 +212,7 @@ export class Minesweeper{
             
             if (mines_arr.length != 0){
                 tile.element.innerHTML = mines_arr.length;
+                // tile.element.style.fontSize = "4";
                 if (mines_arr.length == 1){
                     tile.element.style.color = "#0001fb";
                 }
