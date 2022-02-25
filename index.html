@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>Minesweeper</title>
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link href="./common.css" rel="stylesheet" />
+    <link href="./index.css" rel="stylesheet" />
+    
+</head>
+<body>
+    
+    <header class="title flex justify-center align-center max-width-100">
+        <h1>MINESWEEPER</h1>
+    </header>
+    
+    <!-- data-mine-count is an attribute -->
+    <div class="subtext flex justify-center align-center">Mines Left : <span class="data-mine-left"> </span></div>
+    <div class="flex flex-center"><button style="background-color: #b9b9b9; width: 8em; height: 3em; font-weight: 800;" onclick="window.location.reload()">Reset</button></div>
+    
+    <div class="board justify-center align-center" id="board"></div>
+    
+    <script src="./scripts/index.js" type="module"></script>
+
+</body>
+</html>
